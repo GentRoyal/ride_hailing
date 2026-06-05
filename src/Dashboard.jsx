@@ -4,7 +4,8 @@ import {
   Tooltip, Legend, BarChart, Bar, ResponsiveContainer
 } from "recharts";
 
-const API = "http://localhost:8000/api";
+const API = "https://ride-hailing-nga2.onrender.com/";
+
 
 const STATUS_COLORS = {
   completed: "#22c55e", in_progress: "#3b82f6",
