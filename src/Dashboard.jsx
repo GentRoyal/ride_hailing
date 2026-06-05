@@ -443,8 +443,7 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [lastUpdated, setLastUpdated] = useState(null);
-
-  const fetchAll = useCallback(async () => {
+const fetchAll = useCallback(async () => {
     setLoading(true);
     setError(null);
     try {
@@ -462,7 +461,10 @@ export default function Dashboard() {
       setPaymentMethods(p); setVehicleTypes(v); setRecentTrips(r); setRatingsData(rt);
       setLastUpdated(new Date().toLocaleTimeString());
     } catch (e) {
-      setError(`Error: ${e.message} — ${JSON.stringify(e)}`);
+      console.error("Full error:", e);
+      setError(`Error: ${e.message}`);
+    } finally {
+      setLoading(false);
     }
   }, []);
 
