@@ -462,9 +462,7 @@ export default function Dashboard() {
       setPaymentMethods(p); setVehicleTypes(v); setRecentTrips(r); setRatingsData(rt);
       setLastUpdated(new Date().toLocaleTimeString());
     } catch (e) {
-      setError("Cannot reach the API — make sure FastAPI is running on localhost:8000");
-    } finally {
-      setLoading(false);
+      setError(`Error: ${e.message} — ${JSON.stringify(e)}`);
     }
   }, []);
 
